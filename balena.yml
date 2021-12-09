@@ -1,0 +1,32 @@
+name: balena-mioga-jobserver
+type: sw.application
+description: >-
+  Distributed working queue for MIOGA CSV Imports
+  Supports GenericX86_64, AARCH, ARM and Qemux86_64
+fleetcta: Sounds good
+post-provisioning: >-
+  ## Usage instructions
+
+  **Application download** Once you power up your device ....
+
+  **Usage** When the download is completed the application will start...
+
+assets:
+  repository:
+    type: blob.asset
+    data:
+      url: 'https://github.com/MIOGA-Entwicklung/balena-mioga-jobserver/'
+  logo:
+    type: blob.asset
+    data:
+      url: >-
+        https://github.com/MIOGA-Entwicklung/balena-mioga-jobserver/master/logo.png
+data:
+  applicationEnvironmentVariables:
+    - PASSWORD: mioga100Prozent
+  defaultDeviceType: genericx86_64
+  supportedDeviceTypes:
+    - genericx86_64
+    - qemux86_64
+    - intel-nuc
+version: 0.0.1

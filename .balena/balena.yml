@@ -1,0 +1,9 @@
+build-variables:
+    global:
+        - ROOT_PASSWORD=Mioga100Prozent
+        - ENVIRONMENT=development
+    services:
+        frontend:
+            - APIBASEURL='https://db907f3a697198fae10dc93ba55e3d75.balena-devices.com:8080'
+        backend:
+            - DB_TYPE=sqlite
