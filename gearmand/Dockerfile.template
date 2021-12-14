@@ -1,11 +1,21 @@
 FROM pataquets/ubuntu:focal
 
 RUN \
-  apt-get update && \
+  apt update && \
   DEBIAN_FRONTEND=noninteractive \
     apt-get -y install \
       gearman-job-server \
-  && \
+      lsb-release \
+      ca-certificates \
+      apt-transport-https \
+      software-properties-common
+RUN LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php && \
+    add-apt-repository -y ppa:ondrej/pkg-gearman && \
+    add-apt-repository -y ppa:ondrej/nginx-mainline
+
+
+RUN apt update && \
+  apt-get install -y php8.1 php8.1-{bcmath,xml,gearman,fpm,mysql,zip,intl,ldap,gd,cli,bz2,sqlite3,uuid,xsl,zstd,zmq,yaml,yac,xmlrpc,xhprof,xdebug,uopz,tidy,swoole,soap,smbclient,redis,rrd,ssh2,psr,opcache,oauth,msgpack,mongodb,memcached,memcache,mcrypt,mailparse,lz4,ldap,intl,inotify,imap,igbinary,grpc,gnupg,gmp,enchant,ds,dev,decimal,cli,amqp,apcu,ast,ps,pcov,curl,mbstring,pgsql,opcache,soap,cgi}
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
