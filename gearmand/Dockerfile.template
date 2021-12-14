@@ -20,12 +20,12 @@ RUN apt update && \
   apt-get install -y php8.1 php8.1-dev php8.1-fpm php8.1-cli php8.1-gearman php8.1-uopz php8.1-phar php8.1-xml php8.1-bcmath php8.1-uuid php8.1-redis ;
 # apt install -y "php8.1-{bcmath,xml,gearman,fpm,mysql,zip,intl,ldap,gd,cli,bz2,sqlite3,uuid,xsl,zstd,zmq,yaml,yac,xmlrpc,xhprof,xdebug,uopz,tidy,swoole,soap,smbclient,redis,rrd,ssh2,psr,opcache,oauth,msgpack,mongodb,memcached,memcache,mcrypt,mailparse,lz4,ldap,intl,inotify,imap,igbinary,grpc,gnupg,gmp,enchant,ds,dev,decimal,cli,amqp,apcu,ast,ps,pcov,curl,mbstring,pgsql,opcache,soap,cgi}" && \
 
-  RUN install-php-extensions "php8.1-bcmath php8.1-gearman php8.1-uuid php8.1-xsl php8.1-zstd php8.1-zmq \
+  RUN apt-get -y install php8.1-bcmath php8.1-gearman php8.1-uuid php8.1-xsl php8.1-zstd php8.1-zmq \
    php8.1-yaml php8.1-yac php8.1-xmlrpc php8.1-xhprof php8.1-xdebug php8.1-uopz php8.1-tidy php8.1-swoole php8.1-smbclient php8.1-redis \
    php8.1-rrd php8.1-ssh2 php8.1-psr php8.1-opcache php8.1-oauth php8.1-msgpack php8.1-mongodb php8.1-memcached php8.1-memcache php8.1-mcrypt php8.1-mailparse \
    php8.1-lz4 php8.1-ldap php8.1-intl php8.1-inotify php8.1-imap php8.1-igbinary php8.1-grpc php8.1-gnupg php8.1-gmp php8.1-enchant php8.1-ds php8.1-dev \
    php8.1-decimal php8.1-cli php8.1-amqp php8.1-apcu php8.1-ast php8.1-ps php8.1-pcov php8.1-curl php8.1-mbstring php8.1-pgsql php8.1-opcache php8.1-cgi \
-   php8.1-bz2 php8.1-sqlite3 php8.1-mongodb php8.1-memcached php8.1-memcache php8.1-oauth php8.1-lz4 php8.1-gmp php8.1-mcrypt php8.1-mailparse" ;
+   php8.1-bz2 php8.1-sqlite3 php8.1-mongodb php8.1-memcached php8.1-memcache php8.1-oauth php8.1-lz4 php8.1-gmp php8.1-mcrypt php8.1-mailparse ;
 # RUN docker-php-ext-enable "php8.1-{bcmath,xml,gearman,fpm,mysql,zip,intl,ldap,gd,cli,bz2,sqlite3,uuid,xsl,zstd,zmq,yaml,yac,xmlrpc,xhprof,xdebug,uopz,tidy,swoole,soap,smbclient,redis,rrd,ssh2,psr,opcache,oauth,msgpack,mongodb,memcached,memcache,mcrypt,mailparse,lz4,ldap,intl,inotify,imap,igbinary,grpc,gnupg,gmp,enchant,ds,dev,decimal,cli,amqp,apcu,ast,ps,pcov,curl,mbstring,pgsql,opcache,soap,cgi}" && \
   RUN apt-get -y full-upgrade && \
   apt-get clean && \
