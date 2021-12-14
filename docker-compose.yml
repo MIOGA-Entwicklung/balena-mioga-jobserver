@@ -18,6 +18,9 @@ services:
       - gearmand-data:/etc/gearman.conf
     labels:
       io.balena.features.kernel-modules: '1'
+      io.balena.features.balena-socket: '1'
+      io.balena.features.procfs: '1'
+      io.balena.features.dbus: '1'
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1
   gearman-webui:
