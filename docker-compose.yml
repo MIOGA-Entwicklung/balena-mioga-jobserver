@@ -1,0 +1,30 @@
+version: "2.1"
+
+volumes:
+  gearmand-data:
+  gearman_webui-data:
+
+services:
+  gearmand:
+    build:
+      context: ./gearmand
+    network_mode: host
+    ports:
+      - 4730:4730
+    volumes:
+      - gearmand-data:/etc/gearman.conf
+    labels:
+      io.balena.features.kernel-modules: '1'
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+  gearman-webui:
+    build:
+      context: ./gearman-webui
+    ports:
+      - 80:80
+    links:
+      - 'gearmand'
+    volumes:
+      - gearman_webui-data:/gearmanui
+    labels:
+      io.balena.features.kernel-modules: '1'
